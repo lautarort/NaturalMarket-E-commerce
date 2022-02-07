@@ -30,6 +30,7 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
+import { FaUser } from "react-icons/fa";
 import SignIn from "../SignIn/SignIn";
 
 const Navigation: React.FC = () => {
@@ -95,7 +96,7 @@ const Navigation: React.FC = () => {
           </Button> */}
           <Popover trigger={"hover"}>
             <PopoverTrigger>
-              <Button
+              {/* <Button
                 fontSize={"sm"}
                 fontWeight={600}
                 color={"white"}
@@ -105,6 +106,9 @@ const Navigation: React.FC = () => {
                 }}
               >
                 Iniciar Sesion
+              </Button> */}
+              <Button>
+                <FaUser />
               </Button>
             </PopoverTrigger>
             <Portal>
@@ -143,7 +147,7 @@ const DesktopNav = () => {
                 p={2}
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
-                fontWeight={500}
+                fontWeight={600}
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
