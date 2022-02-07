@@ -18,9 +18,10 @@ import * as React from "react";
 import { Logo } from "./Logo";
 import { OAuthButtonGroup } from "./OAuthButtonGroup";
 import { PasswordField } from "./PasswordField";
+import { Link } from "react-router-dom";
 
 const SignIn: React.FC = () => (
-  <Container maxW="lg" py={{ base: "12" }} px={{ base: "1" }}>
+  <Container maxW="md" py={{ base: "8" }} px={{ base: "1" }}>
     <Stack spacing="8">
       <Box
         py={{ base: "0" }}
@@ -41,11 +42,11 @@ const SignIn: React.FC = () => (
             <PasswordField />
           </Stack>
           <HStack justify="space-between">
-            <Checkbox defaultChecked={true} checked onBlur={true}>
-              Remember me
+            <Checkbox defaultChecked={true} checked onBlur={false} size={"sm"}>
+              Recordarme
             </Checkbox>
             <Button variant="link" colorScheme="blue" size="sm">
-              Forgot password?
+              Olvidaste tu contraseña?
             </Button>
           </HStack>
           <Stack spacing="6">
@@ -58,21 +59,23 @@ const SignIn: React.FC = () => (
                 bg: "blue.300",
               }}
             >
-              Sign in
+              Iniciar sesion
             </Button>
             <HStack>
               <Divider />
               <Text fontSize="sm" whiteSpace="nowrap">
-                or continue with
+                o continuar con
               </Text>
               <Divider />
             </HStack>
             <OAuthButtonGroup />
             <HStack spacing="1" justify="center">
-              <Text>Don't have an account?</Text>
-              <Button variant="link" colorScheme="blue">
-                Sign up
-              </Button>
+              <Text>No tienes una cuenta?</Text>
+              <Link to="/signup">
+                <Button variant="link" colorScheme="blue">
+                  Registrarme
+                </Button>
+              </Link>
             </HStack>
           </Stack>
         </Stack>

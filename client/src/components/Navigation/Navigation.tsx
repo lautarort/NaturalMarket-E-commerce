@@ -104,7 +104,7 @@ const Navigation: React.FC = () => {
                   bg: "blue.300",
                 }}
               >
-                Sign In
+                Iniciar Sesion
               </Button>
             </PopoverTrigger>
             <Portal>
@@ -177,7 +177,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <Link
       href={href}
@@ -196,7 +196,7 @@ const DesktopSubNav = ({ label, href }: NavItem) => {
           >
             {label}
           </Text>
-          {/* <Text fontSize={"sm"}></Text> */}
+          <Text fontSize={"sm"}>{subLabel}</Text>
         </Box>
         <Flex
           transition={"all .3s ease"}
@@ -207,7 +207,13 @@ const DesktopSubNav = ({ label, href }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"blue.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon
+            color={"blue.400"}
+            _groupHover={{ color: "blue.400" }}
+            w={5}
+            h={5}
+            as={ChevronRightIcon}
+          />
         </Flex>
       </Stack>
     </Link>
@@ -290,41 +296,41 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Categorias",
+    label: "Productos",
     children: [
       {
         label: "Todas las categorias",
-        subLabel: "Trending Design to inspire you",
+        subLabel: "Explora todos nuestros productos",
         href: "#",
       },
       {
         label: "Almacen",
-        subLabel: "Up-and-coming Designers",
+        subLabel: "Arroz, lentejas, harinas y mas",
         href: "#",
       },
       {
         label: "Alcohol",
-        subLabel: "Up-and-coming Designers",
+        subLabel: "Cerveza y vinos",
         href: "#",
       },
       {
         label: "Chocolates",
-        subLabel: "Up-and-coming Designers",
+        subLabel: "Amargo y semi-amargo",
         href: "#",
       },
       {
         label: "Congelados",
-        subLabel: "Up-and-coming Designers",
+        subLabel: "Hamburguesas, frutas, helados y mas",
         href: "#",
       },
       {
         label: "Leches & Yogurts",
-        subLabel: "Up-and-coming Designers",
+        subLabel: "Leches de almendra, arroz, avena y mas",
         href: "#",
       },
       {
         label: "Snacks",
-        subLabel: "Up-and-coming Designers",
+        subLabel: "Pochoclos, papas fritas, galletitas y mas",
         href: "#",
       },
     ],

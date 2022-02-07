@@ -11,6 +11,11 @@ import img3 from "./Pictures/Carousel/_MG_0307.jpg";
 import img4 from "./Pictures/Carousel/_MG_0360.jpg";
 import img5 from "./Pictures/Carousel/_MG_0365.jpg";
 import img6 from "./Pictures/Carousel/_MG_0373.jpg";
+import img7 from "./Pictures/Carousel/_MG_0368.jpg";
+import img8 from "./Pictures/Carousel/_MG_0375.jpg";
+import img9 from "./Pictures/Carousel/_MG_0382.jpg";
+import img10 from "./Pictures/Carousel/_MG_0389.jpg";
+import img11 from "./Pictures/Carousel/_MG_0399.jpg";
 
 // Settings for the slider
 const settings = {
@@ -36,7 +41,19 @@ export default function Carousel() {
   const side = useBreakpointValue({ base: "30%", md: "10px" });
 
   // These are the images used in the slide
-  const cards = [img1, img2, img3, img4, img5, img6];
+  const cards = [
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+  ];
 
   return (
     <Box
