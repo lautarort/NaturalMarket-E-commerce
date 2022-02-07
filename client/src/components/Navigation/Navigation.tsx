@@ -15,6 +15,12 @@ import {
   useBreakpointValue,
   useDisclosure,
   useColorMode,
+  PopoverArrow,
+  PopoverHeader,
+  PopoverCloseButton,
+  PopoverBody,
+  PopoverFooter,
+  Portal,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -24,6 +30,7 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
+import SignIn from "../SignIn/SignIn";
 
 const Navigation: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -50,7 +57,11 @@ const Navigation: React.FC = () => {
           <IconButton
             onClick={onToggle}
             icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+              isOpen ? (
+                <CloseIcon w={10} h={10} />
+              ) : (
+                <HamburgerIcon w={20} h={20} />
+              )
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
@@ -79,21 +90,34 @@ const Navigation: React.FC = () => {
           <Button onClick={toggleColorMode}>
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>
-          <Button as={"a"} fontSize={"sm"} fontWeight={400} variant={"link"}>
+          {/* <Button as={"a"} fontSize={"sm"} fontWeight={400} variant={"link"}>
             Sign In
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"blue.400"}
-            _hover={{
-              bg: "blue.300",
-            }}
-          >
-            Sign Up
-          </Button>
+          </Button> */}
+          <Popover trigger={"hover"}>
+            <PopoverTrigger>
+              <Button
+                fontSize={"sm"}
+                fontWeight={600}
+                color={"white"}
+                bg={"blue.400"}
+                _hover={{
+                  bg: "blue.300",
+                }}
+              >
+                Sign In
+              </Button>
+            </PopoverTrigger>
+            <Portal>
+              <PopoverContent>
+                <PopoverArrow />
+                {/* <PopoverHeader>Sign in to your account</PopoverHeader> */}
+                <PopoverCloseButton />
+                <PopoverBody>
+                  <SignIn />
+                </PopoverBody>
+              </PopoverContent>
+            </Portal>
+          </Popover>
         </Stack>
       </Flex>
 
@@ -279,12 +303,12 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "#",
       },
       {
-        label: "Snacks",
+        label: "Alcohol",
         subLabel: "Up-and-coming Designers",
         href: "#",
       },
       {
-        label: "Leches & Yogurts",
+        label: "Chocolates",
         subLabel: "Up-and-coming Designers",
         href: "#",
       },
@@ -294,12 +318,12 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "#",
       },
       {
-        label: "Alcohol",
+        label: "Leches & Yogurts",
         subLabel: "Up-and-coming Designers",
         href: "#",
       },
       {
-        label: "Chocolates",
+        label: "Snacks",
         subLabel: "Up-and-coming Designers",
         href: "#",
       },
