@@ -18,23 +18,30 @@ import { Rating } from "./Rating";
 import { FavouriteButton } from "./FavouriteButton";
 import { PriceTag } from "./PriceTag";
 import { Product } from "./_data";
+import { useQuery } from "react-query";
+import { ProductType } from "./CardGrid";
 
-interface Props {
-  product: Product;
-  rootProps?: StackProps;
-}
+// interface Props {
+//   product: Product;
+//   rootProps?: StackProps;
+// }
 
-export const ProductCard = (props: Props) => {
-  const { product, rootProps } = props;
-  const { name, imageUrl, price, salePrice, rating } = product;
+type Props = {
+  item: ProductType;
+};
+
+const ProductCard: React.FC<Props> = ({ item }) => {
+  //   const { product, rootProps } = props;
+  //   const { name, imageUrl, price, salePrice, rating } = product;
+
   const toast = useToast();
   return (
-    <Stack spacing={useBreakpointValue({ base: "4", md: "5" })} {...rootProps}>
+    <Stack spacing={useBreakpointValue({ base: "4", md: "5" })}>
       <Box position="relative">
         <AspectRatio ratio={11 / 16}>
           <Image
-            src={imageUrl}
-            alt={name}
+            src={item.img}
+            alt={item.title}
             fallback={<Skeleton />}
             borderRadius={useBreakpointValue({ base: "md", md: "xl" })}
             boxSize="200px"
@@ -44,7 +51,7 @@ export const ProductCard = (props: Props) => {
           position="absolute"
           top="4"
           right="4"
-          aria-label={`Add ${name} to your favourites`}
+          aria-label={`Add ${item.title} to your favourites`}
         />
       </Box>
       <Stack>
@@ -53,9 +60,9 @@ export const ProductCard = (props: Props) => {
             fontWeight="medium"
             color={useColorModeValue("gray.700", "gray.400")}
           >
-            {name}
+            {item.title}
           </Text>
-          <PriceTag price={price} salePrice={salePrice} currency="USD" />
+          <PriceTag price={item.price} currency="USD" />
         </Stack>
         {/* <HStack>
           <Rating defaultValue={rating} size="sm" />
@@ -66,7 +73,13 @@ export const ProductCard = (props: Props) => {
       </Stack>
       <Stack align="center">
         <Button
-          colorScheme="blue"
+          fontSize={"sm"}
+          fontWeight={600}
+          color={"white"}
+          bg={"blue.300"}
+          _hover={{
+            bg: "blue.200",
+          }}
           isFullWidth
           onClick={() =>
             toast({
@@ -89,3 +102,5 @@ export const ProductCard = (props: Props) => {
     </Stack>
   );
 };
+
+export default ProductCard;

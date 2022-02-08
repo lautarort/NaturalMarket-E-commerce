@@ -41,7 +41,7 @@ const Hero: React.FC = () => (
           <Stack spacing={{ base: "2", lg: "4" }}>
             <Heading
               size="xl"
-              color={useColorModeValue("green.500", "green.300")}
+              color={useColorModeValue("green.300", "green.200")}
             >
               Natural Market
             </Heading>
@@ -51,14 +51,14 @@ const Hero: React.FC = () => (
           </Stack>
           <HStack spacing="3">
             <Link
-              color={useColorModeValue("green.500", "green.300")}
+              color={useColorModeValue("green.300", "green.200")}
               fontWeight="bold"
               fontSize="lg"
             >
               Registrarme
             </Link>
             <Icon
-              color={useColorModeValue("green.500", "green.300")}
+              color={useColorModeValue("green.300", "green.200")}
               as={FaArrowRight}
             />
           </HStack>

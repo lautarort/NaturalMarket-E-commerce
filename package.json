@@ -9,11 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/react": "^1.8.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "framer-motion": "^5.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.0",
+    "natural-market": "file:",
     "nodemon": "^2.0.15"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
